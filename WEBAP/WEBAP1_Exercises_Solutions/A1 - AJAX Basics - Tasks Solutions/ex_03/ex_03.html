@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Task 3</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function () {
+
+    $("#welcome").click(function () {
+        $("#output").load("welcome.txt");
+    });
+
+    $("#news").click(function () {
+        $("#output").load("news.txt");
+    });
+
+    $("#about").click(function () {
+        $("#output").load("about.txt");
+    });
+
+});
+
+</script>
+
+</head>
+
+<body>
+
+<a href="#" id="welcome">Welcome</a> |
+<a href="#" id="news">News</a> |
+<a href="#" id="about">About</a>
+
+<hr>
+
+<div id="output"></div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2.4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $("#fillCars").click(function()
+            {
+                var req = new XMLHttpRequest();
+                req.open("POST", "cars.txt");
+                req.addEventListener("load", displayResponse);
+                req.send();
+            });
+        });
+
+        function displayResponse(e)
+        {
+            var cars = e.target.response;
+            cars = cars.split(";");
+            for (var i=0; i<cars.length; i++)
+            {
+                document.getElementById("cars").innerHTML += "<option>" + cars[i] + "</option>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <select id="cars"></select>
+        <button id="fillCars">Fill List with Cars</button>
+    </div>
+</body>
+</html>

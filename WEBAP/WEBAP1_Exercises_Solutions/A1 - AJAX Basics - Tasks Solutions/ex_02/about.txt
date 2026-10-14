@@ -1,0 +1,2 @@
+About us:
+This website is a demo for AJAX.

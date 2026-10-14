@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Task 2</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function () {
+ 
+    $("#displayButton").click(function () {
+      let fileName=$("#file").val();
+        $("#output").load(fileName+".txt");
+    });
+
+
+
+});
+
+</script>
+
+</head>
+
+<body>
+    
+<input type="text" id="file" placeholder="Enter file name">
+<button id="displayButton">Display content</button>
+<div id="output"></div>
+
+</body>
+</html>

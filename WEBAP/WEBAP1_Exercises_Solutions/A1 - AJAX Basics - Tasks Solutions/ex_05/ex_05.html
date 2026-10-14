@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2.5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script>
+        $(document).ready(function()
+        {
+            $("#nav a").click(function()
+            {
+                /*var page = $(this).html().toLowerCase();
+                if (page == "lighthouse")
+                    $("#website").load("lighthouse.html");
+                else if (page == "trillium")
+                    $("#website").load("trillium.html");
+                else if (page == "lam")
+                    $("#website").load("http://www.ltam.lu");*/
+
+                var page = $(this).attr("href");
+                $("#website").load(page);
+
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="nav">
+        <ul>
+            <li><a href="lighthouse.html">Lighthouse</a></li>
+            <li><a href="trillium.html">Trillium</a></li>
+            <li><a href="http://www.ltam.lu">LAM</a></li>
+        </ul>
+    </div>
+    <div id="website"></div>
+</body>
+</html>

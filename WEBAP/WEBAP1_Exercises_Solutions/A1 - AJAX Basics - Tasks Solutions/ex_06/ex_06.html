@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2.6</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $("#nav li a").click(function()
+            {
+                var section = $(this).html().toLowerCase();
+                $("#content").load("content.html #" + section);
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul id="nav">
+        <li><a href="#">Welcome</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <div id="content"></div>
+</body>
+</html>

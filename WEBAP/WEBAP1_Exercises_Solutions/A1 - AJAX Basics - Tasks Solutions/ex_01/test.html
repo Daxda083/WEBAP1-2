@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function()
+        {
+            $("#button").click(function()
+            {
+                $("#content").load("test.php");
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button id="button">Click Me</button>
+    <div id="content"></div>
+</body>
+</html>
