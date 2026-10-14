@@ -1,0 +1,47 @@
+services:
+  # Web Server (Apache + PHP)
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: webap_webserver
+    ports:
+      - "8080:80"
+    volumes:
+      - ./WEBAP:/var/www/html/WEBAP
+      # Mount the Virtual Host config persistently:
+      - ./000-default.conf:/etc/apache2/sites-available/000-default.conf
+    depends_on:
+      - db
+    restart: always
+
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: webap_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: webap_db
+      MYSQL_USER: webap_user
+      MYSQL_PASSWORD: webap_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # phpMyAdmin (Web UI to import .sql files and manage MySQL)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: webap_phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    depends_on:
+      - db
+
+volumes:
+  db_data:
