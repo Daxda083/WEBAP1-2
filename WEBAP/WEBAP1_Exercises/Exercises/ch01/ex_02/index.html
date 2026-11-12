@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1.2</title>
+    <link rel="stylesheet" href="../../../assets/exercise.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            // TODO: #asHtml: insert the value of #content into #output with html()
+
+            // TODO: #asText: insert the value of #content into #output with text()
+
+            // TODO: #showSource: display the HTML of #output as text in #source
+        });
+    </script>
+</head>
+<body>
+    <h2>Exercise 1.2 – html() and text()</h2>
+    <p>
+        <input type="text" id="content" size="40" placeholder="Type some HTML, e.g. <b>Hello</b>">
+    </p>
+    <p>
+        <button id="asHtml">Insert as HTML</button>
+        <button id="asText">Insert as text</button>
+        <button id="showSource">Show source of the output</button>
+    </p>
+    <h3>Output</h3>
+    <div id="output" class="box"></div>
+    <h3>Source code of the output</h3>
+    <pre id="source" class="box"></pre>
+</body>
+</html>

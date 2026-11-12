@@ -1,0 +1,32 @@
+/* Shared basic style for all exercise pages */
+body {
+    font-family: system-ui, "Segoe UI", Arial, sans-serif;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px;
+    line-height: 1.5;
+    color: #222;
+}
+body.dark { background: #222; color: #eee; }
+input, select, textarea, button { font: inherit; padding: 4px 8px; margin: 2px; }
+button { cursor: pointer; }
+table { border-collapse: collapse; margin: 10px 0; }
+th, td { border: 1px solid #bbb; padding: 4px 10px; text-align: left; }
+th { background: #deeaf6; }
+td.number { text-align: right; }
+.box { border: 1px solid #bbb; padding: 10px; min-height: 1.5em; background: #fafafa; color: #222; }
+.error { color: #c0392b; font-weight: bold; }
+.ok { color: #1e8449; font-weight: bold; }
+.result { font-weight: bold; font-size: 1.2em; }
+.done { text-decoration: line-through; color: #888; }
+#list li { cursor: pointer; }
+.warm { background: #fdebd0; }
+.female { background: #fce4ec; }
+.male { background: #e3f2fd; }
+.ball {
+    display: inline-block; width: 44px; height: 44px; line-height: 44px; margin: 4px;
+    border-radius: 50%; background: #f4d03f; text-align: center; font-weight: bold; font-size: 1.2em;
+}
+.bar { height: 12px; width: 0; background: #2e86c1; margin-top: 15px; }
+.entry { border-bottom: 1px solid #ddd; padding: 6px 0; cursor: pointer; }
+.entry p { margin: 2px 0 0; }

@@ -1,0 +1,41 @@
+{
+    "city": "Luxembourg",
+    "unit": "°C",
+    "current": {
+        "temperature": 8,
+        "description": "Cloudy",
+        "wind": 15
+    },
+    "forecast": [
+        {
+            "day": "Monday",
+            "min": 3,
+            "max": 9,
+            "description": "Rain"
+        },
+        {
+            "day": "Tuesday",
+            "min": 4,
+            "max": 11,
+            "description": "Sunny"
+        },
+        {
+            "day": "Wednesday",
+            "min": 2,
+            "max": 7,
+            "description": "Cloudy"
+        },
+        {
+            "day": "Thursday",
+            "min": 5,
+            "max": 12,
+            "description": "Sunny"
+        },
+        {
+            "day": "Friday",
+            "min": 1,
+            "max": 6,
+            "description": "Snow"
+        }
+    ]
+}

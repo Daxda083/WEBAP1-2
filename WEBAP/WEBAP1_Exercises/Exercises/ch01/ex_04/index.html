@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1.4</title>
+    <link rel="stylesheet" href="../../../assets/exercise.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            // TODO: #calc: read #a, #b and #op, convert the values to numbers and display the result in #result
+
+            // TODO: error messages for invalid input and division by zero
+        });
+    </script>
+</head>
+<body>
+    <h2>Exercise 1.4 – Calculator</h2>
+    <p>
+        <input type="number" id="a" placeholder="Number 1">
+        <select id="op">
+            <option value="+">+</option>
+            <option value="-">−</option>
+            <option value="*">×</option>
+            <option value="/">÷</option>
+        </select>
+        <input type="number" id="b" placeholder="Number 2">
+        <button id="calc">=</button>
+        <span id="result" class="result"></span>
+    </p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7.4</title>
+    <link rel="stylesheet" href="../../../assets/exercise.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            // TODO: load and display the existing entries when the page is loaded
+
+            // TODO: submit of #guestbook: no page reload, send the form with $.post() and serialize()
+
+            // TODO: display the returned entries, clear the form, loading indicator
+        });
+    </script>
+</head>
+<body>
+    <form id="guestbook">
+        <p><input type="text" name="name" placeholder="Your name" required></p>
+        <p><textarea name="message" rows="3" cols="50" placeholder="Your message" required></textarea></p>
+        <p><button type="submit">Send</button> <span id="loading" style="display: none">sending …</span></p>
+    </form>
+    <div id="entries"></div>
+</body>
+</html>

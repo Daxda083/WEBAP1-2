@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON checker</title>
+    <link rel="stylesheet" href="../../assets/exercise.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>
+        function check(text)
+        {
+            $("#result").text("");
+            if (text.trim() === "")
+            {
+                $("#status").text("The JSON is empty.").attr("class", "error");
+                return;
+            }
+            try
+            {
+                let value = JSON.parse(text);
+                $("#status").text("Valid JSON ✓  (type: " + (Array.isArray(value) ? "array" : typeof value) + ")")
+                            .attr("class", "ok");
+                $("#result").text(JSON.stringify(value, null, 4));
+            }
+            catch (e)
+            {
+                $("#status").text("Invalid JSON: " + e.message).attr("class", "error");
+            }
+        }
+
+        $(document).ready(function()
+        {
+            $("#check").click(function()
+            {
+                let url = $("#exercise").val() + "/answer.json";
+                // dataType "text": jQuery must not parse the JSON itself, we want to see the error
+                $.ajax({ url: url, dataType: "text", cache: false })
+                    .done(check)
+                    .fail(function(xhr)
+                    {
+                        $("#status").text("Cannot load " + url + " (" + xhr.status + ")").attr("class", "error");
+                    });
+            });
+
+            $("#checkPaste").click(function()
+            {
+                check($("#paste").val());
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>JSON checker</h2>
+    <p>
+        Exercise:
+        <select id="exercise">
+            <option value="ex_01">ex_01</option>
+            <option value="ex_02">ex_02</option>
+            <option value="ex_03">ex_03</option>
+            <option value="ex_04">ex_04</option>
+            <option value="ex_05">ex_05</option>
+            <option value="ex_06">ex_06</option>
+        </select>
+        <button id="check">Check answer.json</button>
+    </p>
+    <p>… or paste JSON here:</p>
+    <textarea id="paste" rows="6" cols="70"></textarea><br>
+    <button id="checkPaste">Check pasted JSON</button>
+    <p id="status"></p>
+    <pre id="result" class="box"></pre>
+</body>
+</html>

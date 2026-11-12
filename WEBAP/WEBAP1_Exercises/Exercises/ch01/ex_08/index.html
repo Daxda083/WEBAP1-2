@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1.8</title>
+    <link rel="stylesheet" href="../../../assets/exercise.css">
+    <style>
+        .answer { display: none; }
+        .question { cursor: pointer; }
+        .question.open { color: #c0392b; }
+    </style>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            // TODO: click on a .question: slideToggle() the answer, toggle the class open
+
+            // TODO: #showAll / #hideAll
+
+            // TODO: animate the width of #bar
+        });
+    </script>
+</head>
+<body>
+    <h2>Exercise 1.8 – FAQ with animations</h2>
+    <p>
+        <button id="showAll">Show all</button>
+        <button id="hideAll">Hide all</button>
+    </p>
+    <div id="faq">
+        <h3 class="question">What does AJAX stand for?</h3>
+        <p class="answer">Asynchronous JavaScript and XML.</p>
+        <h3 class="question">Which jQuery method reads the value of a text field?</h3>
+        <p class="answer">The method val().</p>
+        <h3 class="question">What is JSON?</h3>
+        <p class="answer">A compact text format to exchange data between applications.</p>
+        <h3 class="question">Which PHP function creates JSON?</h3>
+        <p class="answer">The function json_encode().</p>
+    </div>
+    <div id="bar" class="bar"></div>
+</body>
+</html>

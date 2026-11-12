@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1.5</title>
+    <link rel="stylesheet" href="../../../assets/exercise.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            // TODO: #summary: display all values in the list #output
+
+            // TODO: enable/disable #summary depending on the name field (event input)
+
+            // TODO: #reset: clear all fields and the list
+        });
+    </script>
+</head>
+<body>
+    <h2>Exercise 1.5 – Registration</h2>
+    <form id="registration">
+        <p><label>Name: <input type="text" id="name"></label></p>
+        <p><label>E-mail: <input type="email" id="email"></label></p>
+        <p>
+            <label>Class:
+                <select id="class">
+                    <option value="">– please select –</option>
+                    <option value="1TPIF">1TPIF</option>
+                    <option value="2TPIF">2TPIF</option>
+                    <option value="3TPIF">3TPIF</option>
+                </select>
+            </label>
+        </p>
+        <p>
+            Preferred language:
+            <label><input type="radio" name="language" value="EN" checked> English</label>
+            <label><input type="radio" name="language" value="FR"> French</label>
+            <label><input type="radio" name="language" value="DE"> German</label>
+        </p>
+        <p><label><input type="checkbox" id="newsletter" value="yes"> I want to receive the newsletter</label></p>
+        <p><label>Remarks:<br><textarea id="remarks" rows="3" cols="40"></textarea></label></p>
+        <p>
+            <button type="button" id="summary" disabled>Show summary</button>
+            <button type="button" id="reset">Reset</button>
+        </p>
+    </form>
+    <ul id="output"></ul>
+</body>
+</html>

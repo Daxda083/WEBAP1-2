@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEBAP1 – Chapter 1 exercises</title>
+    <link rel="stylesheet" href="../../assets/instructions.css">
+</head>
+<body>
+<nav><a href="../../index.html">↑ Overview</a> <a href="../ch02/instructions.html">Chapter 2 →</a></nav>
+<h1>Chapter 1 – jQuery basics</h1>
+<p class="meta">Script: Chapter 1 (sections 1.1 – 1.13)<br>
+Folder: <code>/WEBAP/Exercises/ch01/</code> – one folder <code>ex_xx</code> per exercise (exercise 1 = <code>ex_01</code>, …).
+The start page of each exercise is <code>index.html</code>; comments marked <code>TODO</code> show where to write your code.</p>
+<p>These exercises repeat and practise jQuery: selectors, <code>html()</code>, <code>text()</code>, <code>val()</code>, <code>css()</code>, classes, adding elements, events and animations. No server is needed yet, but open the pages via <code>http://localhost:8080</code> anyway.</p>
+<h2 id="ex_01">Exercise 1 – Selectors</h2>
+<p class="folder">Folder: ch01/ex_01/ &nbsp; <a class="open" href="ex_01/">open folder</a> &nbsp; Files provided: <code>index.html</code></p>
+<p>The page contains the HTML structure of section 1.4 and one button per selector.</p>
+<ol>
+<li>When a button is clicked, the elements selected by the selector written on the button get a <b>yellow background</b> (<code>css()</code>). All other elements lose their background.</li>
+<li>The button <b>Reset</b> removes all backgrounds.</li>
+<li>Before clicking, predict which paragraphs will be selected. Were you right?</li>
+</ol>
+<p class="tip">Tip: write a function <code>highlight(selector)</code> and call it from every click handler.</p>
+<h2 id="ex_02">Exercise 2 – html(), text() and val()</h2>
+<p class="folder">Folder: ch01/ex_02/ &nbsp; <a class="open" href="ex_02/">open folder</a> &nbsp; Files provided: <code>index.html</code></p>
+<ol>
+<li><b>Insert as HTML</b>: read the value of the input field with <code>val()</code> and insert it into <code>#output</code> with <code>html()</code>.</li>
+<li><b>Insert as text</b>: same, but with <code>text()</code>.</li>
+<li><b>Show source of the output</b>: read the content of <code>#output</code> with <code>html()</code> and display it in <code>#source</code> with <code>text()</code>, so that the tags are visible.</li>
+<li>Test with <code>&lt;b&gt;Hello&lt;/b&gt;</code>, <code>&lt;h1&gt;Big&lt;/h1&gt;</code> and <code>&lt;button&gt;Click&lt;/button&gt;</code>. Explain the difference between both buttons in a comment in your code. Which method should you use for texts entered by users? Why?</li>
+</ol>
+<h2 id="ex_03">Exercise 3 – Retrieving values with val()</h2>
+<p class="folder">Folder: ch01/ex_03/ &nbsp; <a class="open" href="ex_03/">open folder</a> &nbsp; Files provided: <code>index.html</code></p>
+<ol>
+<li>When the user clicks <b>Greet me</b>, read both fields with <code>val()</code> and display e.g. <i>Hello Anna Muller!</i> in <code>#output</code>. Remove spaces at the beginning and end with <code>trim()</code>.</li>
+<li>Clear both fields after the greeting (<code>val("")</code>).</li>
+<li>If one of the fields is empty, display <i>Please fill in both fields!</i> in <code>#message</code>, give it the CSS class <code>error</code> (<code>addClass()</code>) and put the cursor into the empty field (<code>focus()</code>). Remove the class again when the input is correct.</li>
+<li>Pressing <b>Enter</b> in the field <code>#lastName</code> has the same effect as clicking the button (event <code>keyup</code>, <code>e.key</code>).</li>
+</ol>
+<h2 id="ex_04">Exercise 4 – Calculator – val() returns strings</h2>
+<p class="folder">Folder: ch01/ex_04/ &nbsp; <a class="open" href="ex_04/">open folder</a> &nbsp; Files provided: <code>index.html</code></p>
+<ol>
+<li>When the user clicks <b>=</b>, calculate the result of the two numbers with the selected operator and display it in <code>#result</code>.<br>
+Remember: <code>val()</code> always returns a <b>string</b>. What happens with <code>+</code> if you do not convert the values?</li>
+<li>If a field is empty or not a number (<code>isNaN()</code>), display <i>Invalid input</i> with the CSS class <code>error</code>.</li>
+<li>A division by zero displays <i>Division by zero is not allowed</i>.</li>
+<li><b>For advanced users:</b> remove the button – the result is updated automatically whenever a value or the operator changes (events <code>input</code> and <code>change</code>).</li>
+</ol>
+<h2 id="ex_05">Exercise 5 – val() with all kinds of form elements</h2>
+<p class="folder">Folder: ch01/ex_05/ &nbsp; <a class="open" href="ex_05/">open folder</a> &nbsp; Files provided: <code>index.html</code></p>
+<ol>
+<li>When the user clicks <b>Show summary</b>, display all entered values as entries of the list <code>#output</code> (one <code>&lt;li&gt;</code> per field, e.g. <i>Class: 2TPIF</i>). Empty the list first.<br>
+Use <code>val()</code> for text fields, the textarea and the drop-down list, <code>$("input[name='language']:checked").val()</code> for the radio buttons and <code>prop("checked")</code> for the checkbox (display <i>yes</i> or <i>no</i>).</li>
+<li>The button <b>Show summary</b> is disabled at the beginning. Enable it (<code>prop("disabled", false)</code>) as soon as the name field is not empty (event <code>input</code>), and disable it again if it becomes empty.</li>
+<li><b>Reset</b> clears all fields, selects English again, empties the list and disables the summary button.</li>
+</ol>
+<h2 id="ex_06">Exercise 6 – To-do list – adding elements and event delegation</h2>
+<p class="folder">Folder: ch01/ex_06/ &nbsp; <a class="open" href="ex_06/">open folder</a> &nbsp; Files provided: <code>index.html</code></p>
+<ol>
+<li><b>Add</b> appends the text of <code>#task</code> as new <code>&lt;li&gt;</code> to <code>#list</code> (<code>append()</code>) and clears the field. Empty tasks are not added. <b>Enter</b> in the field also adds the task.</li>
+<li>Clicking on a task marks it as completed: toggle the CSS class <code>done</code> (<code>toggleClass()</code>).<br>
+Attention: the <code>&lt;li&gt;</code> elements do not exist when the page is loaded → use <b>event delegation</b> (section 1.12).</li>
+<li><b>Remove completed tasks</b> removes all <code>li.done</code> (<code>remove()</code>).</li>
+<li><code>#count</code> always shows the number of open tasks (tip: <code>$("#list li").not(".done").length</code>).</li>
+</ol>
+<h2 id="ex_07">Exercise 7 – Repetition – from JavaScript to jQuery</h2>
+<p class="folder">Folder: ch01/ex_07/ &nbsp; <a class="open" href="ex_07/">open folder</a> &nbsp; Files provided: <code>index.html</code></p>
+<p>The page <code>index.html</code> works, but it is written in plain JavaScript.</p>
+<ol>
+<li>Test the page and read the script carefully.</li>
+<li>Rewrite the <b>whole script in jQuery</b>, without changing the behaviour. Use the tables of section 1.11 (properties, methods and events).</li>
+<li>Count the lines of both versions. Which one is shorter?</li>
+</ol>
+<p class="tip">Tip: <code>hover(fIn, fOut)</code>, <code>toggleClass()</code>, <code>text()</code>, <code>val()</code>, <code>css()</code>, <code>prop("checked")</code> and <code>toggle()</code> will be useful.</p>
+<h2 id="ex_08">Exercise 8 – FAQ with animations</h2>
+<p class="folder">Folder: ch01/ex_08/ &nbsp; <a class="open" href="ex_08/">open folder</a> &nbsp; Files provided: <code>index.html</code></p>
+<ol>
+<li>All answers are hidden at the beginning (CSS). When the user clicks a question, its answer appears or disappears with <code>slideToggle()</code>, and the question gets/loses the class <code>open</code>.<br>
+Tip: the answer is the next element after the question: <code>$(this).next()</code>.</li>
+<li><b>Show all</b> / <b>Hide all</b> show or hide all answers with <code>slideDown()</code> / <code>slideUp()</code>.</li>
+<li>The bar <code>#bar</code> shows the progress: its width is animated (<code>animate()</code>) to <i>number of open answers × 25%</i>.</li>
+<li><b>For advanced users:</b> only one answer may be open at a time.</li>
+</ol>
+</body>
+</html>

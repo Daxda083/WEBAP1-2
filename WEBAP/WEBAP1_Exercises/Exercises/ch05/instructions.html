@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEBAP1 – Chapter 5 exercises</title>
+    <link rel="stylesheet" href="../../assets/instructions.css">
+</head>
+<body>
+<nav><a href="../../index.html">↑ Overview</a> <a href="../ch04/instructions.html">← Chapter 4</a> <a href="../ch06/instructions.html">Chapter 6 →</a></nav>
+<h1>Chapter 5 – Integrating JSON data with AJAX</h1>
+<p class="meta">Script: Chapter 5 (sections 5.1 – 5.4)<br>
+Folder: <code>/WEBAP/Exercises/ch05/</code> – one folder <code>ex_xx</code> per exercise (exercise 1 = <code>ex_01</code>, …).
+The start page of each exercise is <code>index.html</code>; comments marked <code>TODO</code> show where to write your code.</p>
+<p><b>All tasks must be solved with the method <code>$.getJSON()</code>!</b></p>
+<h2 id="ex_01">Exercise 1 – A simple string</h2>
+<p class="folder">Folder: ch05/ex_01/ &nbsp; <a class="open" href="ex_01/">open folder</a> &nbsp; Files provided: <code>firstname.json</code>, <code>index.html</code></p>
+<p>Create a JSON file <b>firstname.json</b> that contains your first name. Then create a client script that loads the content of the JSON file at the push of a button and displays it in a div element.</p>
+<h2 id="ex_02">Exercise 2 – An array</h2>
+<p class="folder">Folder: ch05/ex_02/ &nbsp; <a class="open" href="ex_02/">open folder</a> &nbsp; Files provided: <code>classmates.json</code>, <code>index.html</code></p>
+<p>Create a JSON file <b>classmates.json</b> that stores the first names of at least 5 classmates in a simple array. Then create a client script that loads the first names at the push of a button and displays them in a <code>ul</code> list. The list must not grow when the button is clicked several times.</p>
+<h2 id="ex_03">Exercise 3 – An object</h2>
+<p class="folder">Folder: ch05/ex_03/ &nbsp; <a class="open" href="ex_03/">open folder</a> &nbsp; Files provided: <code>index.html</code>, <code>person.json</code></p>
+<p>The page contains a button and two empty elements with the IDs <b>first</b> and <b>last</b>. Create the server file <b>person.json</b> with the JSON object <code>{"firstName":"John", "lastName":"Doe"}</code>.</p><p>At the push of the button, the first name is loaded into <b>first</b> and the last name into <b>last</b> (section 5.3).</p>
+<h2 id="ex_04">Exercise 4 – Hardware table</h2>
+<p class="folder">Folder: ch05/ex_04/ &nbsp; <a class="open" href="ex_04/">open folder</a> &nbsp; Files provided: <code>hardware.json</code>, <code>index.html</code></p>
+<p>The file <b>hardware.json</b> contains an array of products. When the user clicks the button, all products are listed in a clean <u>HTML table</u> inside the div container. Prices are displayed with 2 decimals (<code>toFixed(2)</code>). If the file cannot be loaded, display an error message (<code>.fail()</code>).</p>
+<h2 id="ex_05">Exercise 5 – Weather – nested objects (new)</h2>
+<p class="folder">Folder: ch05/ex_05/ &nbsp; <a class="open" href="ex_05/">open folder</a> &nbsp; Files provided: <code>index.html</code>, <code>weather.json</code></p>
+<p>The file <b>weather.json</b> contains an object with nested objects and an array. Analyse its structure first.</p><ol><li>At the push of the button, display the city in <code>#city</code> and the current weather in <code>#current</code>, e.g. <i>Now: 8 °C, Cloudy, wind 15 km/h</i> (tip: <code>data.current.temperature</code>).</li><li>Display the forecast as a table (day, min, max, description) in <code>#forecast</code>.</li><li>Rows of days with a maximum of 10 °C or more get the CSS class <code>warm</code>.</li><li><b>For advanced users:</b> display the average maximum temperature of the week below the table.</li></ol>
+<h2 id="ex_06">Exercise 6 – Hardware filter (new)</h2>
+<p class="folder">Folder: ch05/ex_06/ &nbsp; <a class="open" href="ex_06/">open folder</a> &nbsp; Files provided: <code>hardware.json</code>, <code>index.html</code></p>
+<p>Use <b>hardware.json</b> of exercise 4.</p><ol><li>When the page is loaded, fill the drop-down list <code>#category</code> with all categories that occur in the file – each category only once.</li><li>Display the table of all products. When the user selects a category (event <code>change</code>), only the products of this category are displayed. <i>All</i> displays all products again.</li><li><code>#total</code> displays the sum of the prices of the displayed products.</li></ol><p class="tip">Tip: load the JSON only once and store it in a global variable.</p>
+</body>
+</html>

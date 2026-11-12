@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEBAP1 – Chapter 7 exercises</title>
+    <link rel="stylesheet" href="../../assets/instructions.css">
+</head>
+<body>
+<nav><a href="../../index.html">↑ Overview</a> <a href="../ch06/instructions.html">← Chapter 6</a></nav>
+<h1>Chapter 7 – Advanced techniques in AJAX</h1>
+<p class="meta">Script: Chapter 7 (sections 7.1 – 7.6)<br>
+Folder: <code>/WEBAP/Exercises/ch07/</code> – one folder <code>ex_xx</code> per exercise (exercise 1 = <code>ex_01</code>, …).
+The start page of each exercise is <code>index.html</code>; comments marked <code>TODO</code> show where to write your code.</p>
+<p>These exercises use <code>load()</code> with DATA and CALLBACK, <code>$.ajax()</code>, <code>$.post()</code>, <code>serialize()</code>, error handling and loading indicators. Exercise 3 uses the table <code>tblFirstname</code> (connection in <b>ch07/db.php</b>).</p>
+<h2 id="ex_01">Exercise 1 – Greeting with DATA and CALLBACK</h2>
+<p class="folder">Folder: ch07/ex_01/ &nbsp; <a class="open" href="ex_01/">open folder</a> &nbsp; Files provided: <code>greet.php</code>, <code>index.html</code></p>
+<p>Create a page with the input fields <b>firstName</b> and <b>name</b> and a button. Send both values to <b>greet.php</b> using the DATA parameter of <code>load()</code> (section 7.1). The script answers with a greeting that is displayed in <code>#output</code>.</p><p>In the callback function, display <i>Loaded successfully</i> or the error message (<code>xhr.status</code> and <code>xhr.statusText</code>) in <code>#status</code>. Test the error message by renaming <b>greet.php</b> temporarily.</p><p class="tip">Remember: with a DATA object, <code>load()</code> sends a POST request → <code>$_POST</code>.</p>
+<h2 id="ex_02">Exercise 2 – Calculator on the server</h2>
+<p class="folder">Folder: ch07/ex_02/ &nbsp; <a class="open" href="ex_02/">open folder</a> &nbsp; Files provided: <code>calc.php</code>, <code>index.html</code></p>
+<p>Create a page with two number fields, a drop-down list with the operators + − × ÷ and a button. <b>calc.php</b> receives the values via <code>$.getJSON()</code> and returns a JSON object such as <code>{"a":12,"b":5,"op":"+","result":17}</code>. For a division by zero or an unknown operator it returns <code>{"error":"Division by zero"}</code>.</p><p>Display <i>12 + 5 = 17</i> or the error message (CSS class <code>error</code>).</p>
+<h2 id="ex_03">Exercise 3 – Live search with $.ajax()</h2>
+<p class="folder">Folder: ch07/ex_03/ &nbsp; <a class="open" href="ex_03/">open folder</a> &nbsp; Files provided: <code>index.html</code>, <code>search.php</code></p>
+<ol><li>While the user is typing into the search field (event <code>input</code>), <b>search.php</b> returns all first names of <code>tblFirstname</code> that <b>contain</b> the typed text as JSON array (<code>LIKE ?</code> with <code>"%" . $text . "%"</code>). Display them in the list, or <i>No results</i>.</li><li>Use <code>$.ajax()</code> with <code>.done()</code>, <code>.fail()</code> and <code>.always()</code> (section 7.3). Show <code>#loading</code> during the request and hide it in <code>.always()</code>.</li><li>In case of an error, display a red message in <code>#status</code>. Test it by changing the URL.</li><li>Search only when at least 2 characters were typed; otherwise empty the list.</li></ol>
+<h2 id="ex_04">Exercise 4 – Guestbook with $.post() and serialize()</h2>
+<p class="folder">Folder: ch07/ex_04/ &nbsp; <a class="open" href="ex_04/">open folder</a> &nbsp; Files provided: <code>guestbook.php</code>, <code>index.html</code></p>
+<ol><li>The form has the fields <b>name</b> and <b>message</b>. On submit, prevent the page reload and send the form with <code>$.post()</code> and <code>serialize()</code> to <b>guestbook.php</b> (section 7.4).</li><li><b>guestbook.php</b> appends the entry (with date) to the file <b>guestbook.json</b> and returns <b>all</b> entries as JSON array of objects, newest first. Tip: <code>json_decode(file_get_contents(...), true)</code>, <code>file_put_contents()</code>.</li><li>Display the entries without reloading the page, also when the page is opened. Clear the form after sending.</li><li>Show <code>#loading</code> while the request is running (test with <code>sleep(1);</code> in PHP).</li></ol><p class="tip">Note: the web server must be allowed to write into the folder. In the Docker environment run <code>docker exec webap_webserver chown -R www-data /var/www/html/WEBAP</code> if you get a “Permission denied” error.</p>
+<h2 id="ex_05">Exercise 5 – Deleting guestbook entries (for advanced users)</h2>
+<p class="folder">Folder: ch07/ex_05/ &nbsp; <a class="open" href="ex_05/">open folder</a> &nbsp; Files provided: <code>README.txt</code></p>
+<p>Copy exercise 4 to <b>ex_05</b>. Every entry gets a unique <code>id</code> (<code>uniqid()</code>). When the user clicks on an entry and confirms, the entry is deleted on the server and the list is updated. Use <b>event delegation</b> (section 1.12) because the entries are added after the page was loaded.</p>
+</body>
+</html>

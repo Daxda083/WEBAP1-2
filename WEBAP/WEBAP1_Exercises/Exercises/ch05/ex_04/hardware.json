@@ -1,0 +1,38 @@
+[
+    {
+        "brand": "Western Digital",
+        "description": "WD10EZEX Blue 1TB internal hard drive",
+        "category": "Hard Drive",
+        "price": 51.74
+    },
+    {
+        "brand": "Asus",
+        "description": "M5A99X Evo R2.0 Socket AM3+",
+        "category": "Motherboard",
+        "price": 119.72
+    },
+    {
+        "brand": "Gigabyte",
+        "description": "Z87-D3HP Socket LGA 1150",
+        "category": "Motherboard",
+        "price": 77.99
+    },
+    {
+        "brand": "Intel",
+        "description": "i7-4790 Core processor",
+        "category": "Processor",
+        "price": 271.48
+    },
+    {
+        "brand": "Intel",
+        "description": "BX80646G3420 Dual-Core Processor",
+        "category": "Processor",
+        "price": 57.05
+    },
+    {
+        "brand": "AMD",
+        "description": "FX-6350 6 Core CPU 3.9 GHZ",
+        "category": "Processor",
+        "price": 118.42
+    }
+]

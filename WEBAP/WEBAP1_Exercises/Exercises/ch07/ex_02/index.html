@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7.2</title>
+    <link rel="stylesheet" href="../../../assets/exercise.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            // TODO: #calc: send a, b and op to calc.php with $.getJSON()
+
+            // TODO: display the result or data.error
+        });
+    </script>
+</head>
+<body>
+    <input type="number" id="a" placeholder="a">
+    <select id="op">
+        <option value="+">+</option>
+        <option value="-">−</option>
+        <option value="*">×</option>
+        <option value="/">÷</option>
+    </select>
+    <input type="number" id="b" placeholder="b">
+    <button id="calc">=</button>
+    <span id="result" class="result"></span>
+</body>
+</html>

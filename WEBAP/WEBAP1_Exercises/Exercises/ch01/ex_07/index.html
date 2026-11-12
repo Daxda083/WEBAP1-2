@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1.7</title>
+    <link rel="stylesheet" href="../../../assets/exercise.css">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>
+        // TODO: rewrite the following plain JavaScript code with jQuery
+
+        document.addEventListener("DOMContentLoaded", function()
+        {
+            document.getElementById("setTitle").addEventListener("click", function()
+            {
+                let text = document.getElementById("newTitle").value;
+                document.getElementById("title").textContent = text;
+                document.getElementById("newTitle").value = "";
+            });
+
+            document.getElementById("toggleTheme").addEventListener("click", function()
+            {
+                document.body.classList.toggle("dark");
+            });
+
+            let box = document.getElementById("colorBox");
+            box.addEventListener("mouseenter", function()
+            {
+                box.style.backgroundColor = "orange";
+            });
+            box.addEventListener("mouseleave", function()
+            {
+                box.style.backgroundColor = "";
+            });
+
+            document.getElementById("plus").addEventListener("click", function()
+            {
+                let counter = document.getElementById("counter");
+                counter.innerHTML = Number(counter.innerHTML) + 1;
+            });
+
+            document.getElementById("size").addEventListener("change", function()
+            {
+                document.getElementById("sample").style.fontSize = this.value;
+            });
+
+            document.getElementById("show").addEventListener("change", function()
+            {
+                if (this.checked)
+                {
+                    document.getElementById("secret").style.display = "";
+                }
+                else
+                {
+                    document.getElementById("secret").style.display = "none";
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2 id="title">Exercise 1.7 – From JavaScript to jQuery</h2>
+
+    <p>
+        <input type="text" id="newTitle" placeholder="New title">
+        <button id="setTitle">Change title</button>
+        <button id="toggleTheme">Dark / light</button>
+    </p>
+
+    <div id="colorBox" class="box">Move the mouse over me</div>
+
+    <p>
+        <button id="plus">+1</button> Clicks: <span id="counter">0</span>
+    </p>
+
+    <p>
+        Font size:
+        <select id="size">
+            <option value="12px">small</option>
+            <option value="16px" selected>normal</option>
+            <option value="24px">large</option>
+        </select>
+    </p>
+    <p id="sample">This is a sample text.</p>
+
+    <p><label><input type="checkbox" id="show"> Show the secret</label></p>
+    <p id="secret" style="display: none">jQuery is just JavaScript!</p>
+</body>
+</html>

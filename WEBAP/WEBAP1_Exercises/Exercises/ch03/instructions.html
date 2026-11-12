@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEBAP1 – Chapter 3 exercises</title>
+    <link rel="stylesheet" href="../../assets/instructions.css">
+</head>
+<body>
+<nav><a href="../../index.html">↑ Overview</a> <a href="../ch02/instructions.html">← Chapter 2</a> <a href="../ch04/instructions.html">Chapter 4 →</a></nav>
+<h1>Chapter 3 – Reloading content generated with PHP (exercise sheet A2)</h1>
+<p class="meta">Script: Chapter 3 (sections 3.1 – 3.3)<br>
+Folder: <code>/WEBAP/Exercises/ch03/</code> – one folder <code>ex_xx</code> per exercise (exercise 1 = <code>ex_01</code>, …).
+The start page of each exercise is <code>index.html</code>; comments marked <code>TODO</code> show where to write your code.</p>
+<p>Remember: test every PHP script <b>directly in the browser</b> first, e.g. <code>http://localhost:8080/Exercises/ch03/ex_03/getNumbers.php?input=10</code>, before you call it with AJAX.</p>
+<h2 id="ex_01">Exercise 1 – Number sequence</h2>
+<p class="folder">Folder: ch03/ex_01/ &nbsp; <a class="open" href="ex_01/">open folder</a> &nbsp; Files provided: <code>getNumbers.php</code>, <code>index.html</code></p>
+<p>The HTML page <b>index.html</b> contains a link and an empty div container.</p><p>Create a PHP script <b>getNumbers.php</b> that generates the number sequence [1, 25] as output.</p><p>When the user clicks on the link, the number sequence generated with PHP is loaded into the div container.</p>
+<h2 id="ex_02">Exercise 2 – Number sequence in a list</h2>
+<p class="folder">Folder: ch03/ex_02/ &nbsp; <a class="open" href="ex_02/">open folder</a> &nbsp; Files provided: <code>README.txt</code></p>
+<p>Create a copy of the previous task in <b>ex_02</b> and modify your script so that the number sequence is loaded into an unordered list (<code>ul</code>) instead of a div container.</p><p class="tip">Tip: the PHP script must now generate <code>&lt;li&gt;</code> elements.</p>
+<h2 id="ex_03">Exercise 3 – Number sequence with an input field</h2>
+<p class="folder">Folder: ch03/ex_03/ &nbsp; <a class="open" href="ex_03/">open folder</a> &nbsp; Files provided: <code>README.txt</code></p>
+<ol><li>Create a copy of the previous task in <b>ex_03</b> and add an input field with the ID <b>input</b>.</li><li>When the user clicks on the link, the PHP script generates the number sequence [1, &lt;value of input&gt;], which is displayed in the list. The value is read with <code>val()</code> and transmitted to the PHP script via the URL parameter <b>input</b>.</li><li>If the parameter is missing, the script generates the numbers 1 to 25 (use <code>??</code>, section 3.3).</li></ol>
+<h2 id="ex_04">Exercise 4 – List of classes</h2>
+<p class="folder">Folder: ch03/ex_04/ &nbsp; <a class="open" href="ex_04/">open folder</a> &nbsp; Files provided: <code>getClassList.php</code>, <code>index.html</code></p>
+<ol><li><b>index.html</b> contains a button and an empty <code>ul</code> list.</li><li>Complete the PHP script <b>getClassList.php</b>. It contains the array <code>$classes</code>.</li><li>When the user clicks the button, the values of the array <code>$classes</code> are loaded into the list.</li></ol>
+<h2 id="ex_05">Exercise 5 – Filtering classes</h2>
+<p class="folder">Folder: ch03/ex_05/ &nbsp; <a class="open" href="ex_05/">open folder</a> &nbsp; Files provided: <code>README.txt</code></p>
+<ol><li>Create a copy of the previous task in <b>ex_05</b>.</li><li>Ignore <b>index.html</b> and AJAX for now and focus on the PHP script. Check it for correctness before you integrate it with AJAX (see note 2).</li><li>Send a parameter <b>input</b> (e.g. the value “GI”) to the PHP script via URL. The script reads it into the variable <code>$input</code> and outputs only the classes of <code>$classes</code> that contain the string <code>$input</code>.</li><li>Test your PHP script with different values.</li><li>Now add an input field to <b>index.html</b>. When the user clicks on the button, the list is filled with all classes containing the text entered by the user.</li></ol><p><b>Note 1:</b> find out about the PHP functions <code>strpos</code>, <code>stripos</code> and <code>str_contains</code>.</p><p><b>Note 2:</b> you can test a PHP script by opening it in the browser and adding the parameters to the URL, e.g. <code>getClassList.php?input=GI</code>.</p>
+<h2 id="ex_06">Exercise 6 – Datalist</h2>
+<p class="folder">Folder: ch03/ex_06/ &nbsp; <a class="open" href="ex_06/">open folder</a> &nbsp; Files provided: <code>README.txt</code></p>
+<ol><li>Create a copy of the previous task in <b>ex_06</b>.</li><li>Rename your PHP script to <b>getClassDatalist.php</b>.</li><li>Read the description of the HTML element <code>&lt;datalist&gt;</code>: <a href="https://www.w3schools.com/tags/tag_datalist.asp">w3schools.com/tags/tag_datalist.asp</a></li><li>Modify <b>index.html</b> and <b>getClassDatalist.php</b> so that a datalist is used instead of the list. The datalist is updated while the user is typing (event <code>input</code>) – the button is no longer needed.</li></ol>
+</body>
+</html>

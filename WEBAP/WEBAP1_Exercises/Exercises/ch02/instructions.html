@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEBAP1 – Chapter 2 exercises</title>
+    <link rel="stylesheet" href="../../assets/instructions.css">
+</head>
+<body>
+<nav><a href="../../index.html">↑ Overview</a> <a href="../ch01/instructions.html">← Chapter 1</a> <a href="../ch03/instructions.html">Chapter 3 →</a></nav>
+<h1>Chapter 2 – AJAX basics (exercise sheet A1)</h1>
+<p class="meta">Script: Chapter 2 (sections 2.2 – 2.5)<br>
+Folder: <code>/WEBAP/Exercises/ch02/</code> – one folder <code>ex_xx</code> per exercise (exercise 1 = <code>ex_01</code>, …).
+The start page of each exercise is <code>index.html</code>; comments marked <code>TODO</code> show where to write your code.</p>
+<p>All tasks must be solved with the jQuery method <code>load()</code> (except task 4).</p>
+<h2 id="ex_01">Exercise 1 – Loading a text file</h2>
+<p class="folder">Folder: ch02/ex_01/ &nbsp; <a class="open" href="ex_01/">open folder</a> &nbsp; Files provided: <code>index.html</code>, <code>name.txt</code></p>
+<p>The file <b>name.txt</b> contains your name. Write an HTML page with a button that, when pressed, reloads and displays the contents of the file <b>name.txt</b>.</p>
+<h2 id="ex_02">Exercise 2 – File name from an input field</h2>
+<p class="folder">Folder: ch02/ex_02/ &nbsp; <a class="open" href="ex_02/">open folder</a> &nbsp; Files provided: <code>answer.txt</code>, <code>index.html</code>, <code>welcome.txt</code></p>
+<p>Write an HTML page that contains an input field and a button. When the user clicks the button, the contents of the file <b>&lt;input&gt;.txt</b> should be loaded and displayed on the page (<b>&lt;input&gt;</b> is the content of the input field – use <code>val()</code>).</p><p>What happens if the user enters a file name that does not exist on the web server? Write your answer in <b>answer.txt</b>. Look at the <b>Network</b> tab of the developer tools (F12) to explain it.</p>
+<h2 id="ex_03">Exercise 3 – Three links</h2>
+<p class="folder">Folder: ch02/ex_03/ &nbsp; <a class="open" href="ex_03/">open folder</a> &nbsp; Files provided: <code>index.html</code></p>
+<p>Create the text files <b>welcome.txt</b>, <b>news.txt</b> and <b>about.txt</b> and fill them with different content spanning several lines.</p><p>Write an HTML page with the three links “<b>Welcome</b>”, “<b>News</b>” and “<b>About</b>”. When a link is clicked, the content of the corresponding text file is loaded and displayed.</p><p class="tip">Tip: the links must not be followed – use <code>e.preventDefault()</code> (section 1.12).</p>
+<h2 id="ex_04">Exercise 4 – Filling a drop-down list (for advanced users)</h2>
+<p class="folder">Folder: ch02/ex_04/ &nbsp; <a class="open" href="ex_04/">open folder</a> &nbsp; Files provided: <code>cars.txt</code>, <code>index.html</code></p>
+<p>The text file <b>cars.txt</b> contains car brands in the format <code>brand1;brand2;brand3;...</code></p><p>Create an HTML page with an empty drop-down list and a button. When the user clicks the button, the drop-down list is filled with the car brands.</p><p class="tip">Tip: <code>$.get("cars.txt", function(data) { ... })</code> gives you the content as a string; <code>data.split(";")</code> turns it into an array, and <code>append()</code> adds the options (sections 1.9 and 7.3). You can also use <code>XMLHttpRequest</code> (section 2.1).</p>
+<h2 id="ex_05">Exercise 5 – Loading whole web pages</h2>
+<p class="folder">Folder: ch02/ex_05/ &nbsp; <a class="open" href="ex_05/">open folder</a> &nbsp; Files provided: <code>answer.txt</code>, <code>index.html</code>, <code>lighthouse.html</code>, <code>trillium.html</code>, <code>css/</code>, <code>gif/</code>, <code>jpg/</code></p>
+<p>Your teacher has given you two web pages (<b>lighthouse.html</b>, <b>trillium.html</b>) with their directories <b>css</b>, <b>gif</b> and <b>jpg</b>. The page <b>index.html</b> already contains the navigation bar (it uses <b>css/style.css</b>).</p><p>When you click on “<b>Lighthouse</b>” or “<b>Trillium</b>”, the corresponding page is loaded into the div container with the ID <b>website</b> using AJAX.</p><p>When you click on “<b>LPEM</b>”, the Lycée Privé Emile Metz website should be loaded into the div container. Why doesn’t this work? Search the internet for a reason and write your explanation in <b>answer.txt</b>.</p>
+<h2 id="ex_06">Exercise 6 – Loading parts of an HTML file</h2>
+<p class="folder">Folder: ch02/ex_06/ &nbsp; <a class="open" href="ex_06/">open folder</a> &nbsp; Files provided: <code>content.html</code>, <code>index.html</code></p>
+<p>Open the file <b>content.html</b> and analyse its HTML structure.</p><p>Complete <b>index.html</b>: it contains the links “<b>Welcome</b>”, “<b>News</b>”, “<b>About</b>” and “<b>Question</b>”. When the user clicks on one of these links, only the content <u>of the corresponding div container</u> in <b>content.html</b> is loaded and displayed (section 2.4: <code>load("content.html #id")</code>).</p>
+<h2 id="ex_07">Exercise 7 – Dictionary</h2>
+<p class="folder">Folder: ch02/ex_07/ &nbsp; <a class="open" href="ex_07/">open folder</a> &nbsp; Files provided: <code>a.html</code>, <code>b.html</code>, <code>c.html</code>, <code>d.html</code>, <code>e.html</code>, <code>f.html</code>, <code>g.html</code>, <code>h.html</code>, <code>index.html</code>, <code>style.css</code></p>
+<p>Complete <b>index.html</b> so that when a letter (e.g. <b><u>A</u></b>) is clicked, the corresponding dictionary entries are loaded and displayed in <code>#dictionary</code>. The entries are loaded from the HTML pages <b>a.html</b>, <b>b.html</b>, etc. Load only the entries, not the whole page.</p>
+<h2 id="ex_08">Exercise 8 – Dictionary from a single file</h2>
+<p class="folder">Folder: ch02/ex_08/ &nbsp; <a class="open" href="ex_08/">open folder</a> &nbsp; Files provided: <code>README.txt</code></p>
+<p>Create a copy of the previous task in <b>ex_08</b> and change the structure and files so that all dictionary entries are loaded from a single file called <b>entries.html</b>.</p>
+<h2 id="ex_09">Exercise 9 – Dependent drop-down lists</h2>
+<p class="folder">Folder: ch02/ex_09/ &nbsp; <a class="open" href="ex_09/">open folder</a> &nbsp; Files provided: <code>brands.html</code>, <code>cars.html</code>, <code>index.html</code></p>
+<p>Open the files <b>index.html</b>, <b>brands.html</b> and <b>cars.html</b> and analyse their structure. Program the following functionalities in <b>index.html</b>:</p><ol><li>When the user clicks the button, the list <b>brands</b> is filled with the car brands of <b>brands.html</b>.</li><li>When the user selects a car brand in the list <b>brands</b> (event <code>change</code>, value with <code>val()</code>), all cars <u>of that brand</u> are displayed in the list <b>cars</b>. All cars of all brands are in the file <b>cars.html</b>.</li></ol>
+</body>
+</html>
