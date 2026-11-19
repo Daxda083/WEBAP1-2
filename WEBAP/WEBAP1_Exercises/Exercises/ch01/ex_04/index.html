@@ -6,8 +6,43 @@
     <link rel="stylesheet" href="../../../assets/exercise.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script>
-        $(document).ready(function()
-        {
+            $(document).ready(function () {
+            $("#calc").click(function () {
+                let number1 = $("#a").val();
+                let number2 = $("#b").val();
+                let operator = $("#op").val();
+                let result = 0;
+
+
+
+
+                if (number1 !== "" && number2 !== "") {
+                    number1 = parseFloat(number1);
+                    number2 = parseFloat(number2);
+
+                    if (!isNaN(number1) && !isNaN(number2)) {
+                        if (number2 === 0 && operator === "/") {
+                            $("#result").text("Please don't divide by 0!")
+                        } else {
+                            switch (operator) {
+                                case "+": result = number1 + number2;
+                                    break;
+                                case "-": result = number1 - number2;
+                                    break;
+                                case "*": result = number1 * number2;
+                                    break;
+                                case "/": result = number1 / number2;
+                                    break;
+                            }
+                            $("#result").text(result);
+                        }
+                    } else {
+                        $("#result").text("Please enter valid numbers!");
+                    }
+                } else {
+                    $("#result").text("Please fill out both fields!");
+                }
+            });
             // TODO: #calc: read #a, #b and #op, convert the values to numbers and display the result in #result
 
             // TODO: error messages for invalid input and division by zero

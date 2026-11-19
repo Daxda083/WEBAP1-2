@@ -6,14 +6,29 @@
     <link rel="stylesheet" href="../../../assets/exercise.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script>
-        $(document).ready(function()
-        {
-            // TODO: #greet: read #firstName and #lastName with val() and display a greeting in #output
+     $(document).ready(function () {
+            $("#greet").click(function () {
+                // TODO: #greet: read #firstName and #lastName with val() and display a greeting in #output
+                let firstName = $("#firstName").val();
+                let lastName = $("#lastName").val();
 
-            // TODO: error message in #message (class error) if a field is empty
-
-            // TODO: Enter in #lastName triggers the greeting
+                // TODO: error message in #message (class error) if a field is empty
+                if (firstName === "" || lastName === "") {
+                    $("#message").addClass("error");
+                    $("#message").text("Please fill in both fields!");
+                } else {
+                    $("#message").removeClass("error");
+                    $("#message").text("");
+                    $("#output").text("Hello " + firstName + " " + lastName);
+                }})
+                // TODO: Enter in #lastName triggers the greeting
+                 $("#lastName").keypress(function () {
+                    if (event.which === 13){
+                        $("#greet").click();
+                    }
         });
+     });
+
     </script>
 </head>
 <body>
