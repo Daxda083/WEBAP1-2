@@ -4,54 +4,50 @@
     <meta charset="UTF-8">
     <title>Exercise 1.7</title>
     <link rel="stylesheet" href="../../../assets/exercise.css">
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script src="../../jquery-4.0.0.min.js"></script>
     <script>
         // TODO: rewrite the following plain JavaScript code with jQuery
 
-        document.addEventListener("DOMContentLoaded", function()
+        $(document).ready(function()
         {
-            document.getElementById("setTitle").addEventListener("click", function()
+            $("#setTitle").on("click", function()
             {
-                let text = document.getElementById("newTitle").value;
-                document.getElementById("title").textContent = text;
-                document.getElementById("newTitle").value = "";
+                let text = $("#newTitle").val();
+               $("#title").textContent = text;
+               $("#newTitle").val("");
             });
 
-            document.getElementById("toggleTheme").addEventListener("click", function()
+            $("#toggleTheme").on("click", function()
             {
-                document.body.classList.toggle("dark");
+               $("body").toggleClass("dark");
             });
 
-            let box = document.getElementById("colorBox");
-            box.addEventListener("mouseenter", function()
+            let box = $("#colorBox");
+            box.hover(function () {
+                box.css("backgroundColor", "orange");
+            }, function () { box.css("backgroundColor", "") });
+
+           $("#plus").on("click", function()
             {
-                box.style.backgroundColor = "orange";
-            });
-            box.addEventListener("mouseleave", function()
-            {
-                box.style.backgroundColor = "";
+                let counter = parseInt($("#counter").text());
+                console.log(counter)
+                $("#counter").html(counter +1);
             });
 
-            document.getElementById("plus").addEventListener("click", function()
+            $("size").on("change", function()
             {
-                let counter = document.getElementById("counter");
-                counter.innerHTML = Number(counter.innerHTML) + 1;
+                $("sample").style.fontSize = this.value;
             });
 
-            document.getElementById("size").addEventListener("change", function()
-            {
-                document.getElementById("sample").style.fontSize = this.value;
-            });
-
-            document.getElementById("show").addEventListener("change", function()
+            $("show").on("change", function()
             {
                 if (this.checked)
                 {
-                    document.getElementById("secret").style.display = "";
+                    $("secret").show();
                 }
                 else
                 {
-                    document.getElementById("secret").style.display = "none";
+                    $("secret").hide();
                 }
             });
         });

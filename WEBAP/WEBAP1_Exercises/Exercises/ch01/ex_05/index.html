@@ -1,21 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Exercise 1.5</title>
     <link rel="stylesheet" href="../../../assets/exercise.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script>
-        $(document).ready(function()
-        {
-            // TODO: #summary: display all values in the list #output
+        $(document).ready(function () {
 
-            // TODO: enable/disable #summary depending on the name field (event input)
+    // 1. Show summary when the button is clicked
+    $("#summary").on("click", function () {
 
-            // TODO: #reset: clear all fields and the list
-        });
+        // Empty the list first
+        $("#output").empty();
+
+        // Get values from the form
+        let name = $("#name").val();
+        let email = $("#email").val();
+        let schoolClass = $("#class").val();
+        let language = $("input[name='language']:checked").val();
+        let newsletter = $("#newsletter").prop("checked");
+        let remarks = $("#remarks").val();
+
+        // Add each value to the output list
+        $("#output").append("<li>Name: " + name + "</li>");
+        $("#output").append("<li>E-mail: " + email + "</li>");
+        $("#output").append("<li>Class: " + schoolClass + "</li>");
+        $("#output").append("<li>Language: " + language + "</li>");
+        $("#output").append("<li>Newsletter: " + (newsletter ? "yes" : "no") + "</li>");
+        $("#output").append("<li>Remarks: " + remarks + "</li>");
+
+    });
+
+
+    // 2. Enable or disable summary button depending on name
+    $("#name").on("input", function () {
+
+        if ($(this).val().trim() !== "") {
+            $("#summary").prop("disabled", false);
+        } else {
+            $("#summary").prop("disabled", true);
+        }
+
+    });
+
+
+    // 3. Reset everything
+    $("#reset").on("click", function () {
+
+        // Clear all text fields
+        $("#name").val("");
+        $("#email").val("");
+        $("#remarks").val("");
+
+        // Reset class dropdown
+        $("#class").val("");
+
+        // Select English again
+        $("input[name='language'][value='EN']").prop("checked", true);
+
+        // Uncheck newsletter
+        $("#newsletter").prop("checked", false);
+
+        // Empty output list
+        $("#output").empty();
+
+        // Disable summary button
+        $("#summary").prop("disabled", true);
+
+    });
+
+});
     </script>
 </head>
+
 <body>
     <h2>Exercise 1.5 – Registration</h2>
     <form id="registration">
@@ -46,4 +105,5 @@
     </form>
     <ul id="output"></ul>
 </body>
+
 </html>

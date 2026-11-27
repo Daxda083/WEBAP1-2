@@ -1,23 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Exercise 1.6</title>
     <link rel="stylesheet" href="../../../assets/exercise.css">
     <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
     <script>
-        $(document).ready(function()
-        {
-            // TODO: #add (and Enter in #task): append a new <li> to #list
+        $(document).ready(function () {
+            function addTask() {
 
-            // TODO: click on an <li>: toggle the class done (event delegation!)
+                let task = $("#task").val().trim();
 
-            // TODO: #clearDone: remove all completed tasks
+                // Do not add empty tasks
+                if (task !== "") {
 
-            // TODO: update #count
+                    $("#list").append("<li>" + task + "</li>");
+
+                    // Clear the input field
+                    $("#task").val("");
+
+                    // Update the number of open tasks
+                    updateCount();
+                }
+            }
+            // 1. Add button
+            $("#add").on("click", function () {
+                addTask();
+
+            });
+
+
+            // Press Enter to add a task
+            $("#task").on("keydown", function (event) {
+
+                if (event.key === "Enter") {
+                    addTask();
+                }
+
+            });
+
+
+            // 2. Event delegation: click on a task
+            $("#list").on("click", "li", function () {
+
+                $(this).toggleClass("done");
+
+                updateCount();
+            });
+
+
+            // 3. Remove completed tasks
+            $("#clearDone").on("click", function () {
+
+                $("#list li.done").remove();
+
+                updateCount();
+            });
+
+
+            // 4. Update the number of open tasks
+            function updateCount() {
+
+                let count = $("#list li").not(".done").length;
+
+                $("#count").text(count);
+            }
+
         });
+
     </script>
 </head>
+
 <body>
     <h2>Exercise 1.6 – To-do list</h2>
     <p>
@@ -28,4 +82,5 @@
     <p>Open tasks: <span id="count">0</span></p>
     <ul id="list"></ul>
 </body>
+
 </html>
